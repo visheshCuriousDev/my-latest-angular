@@ -1,0 +1,8 @@
+<app-header></app-header>
+<div class="jokes">
+  <p>
+    Here is a joke - {{joke?.value}}
+  </p>
+  <button mat-raised-button color="primary" (click)="getJokes()">Get New joke</button>
+  <button class="margin-left-15" mat-raised-button color="warn" [routerLink]="['/home']"> Goto Home Page </button>
+</div>

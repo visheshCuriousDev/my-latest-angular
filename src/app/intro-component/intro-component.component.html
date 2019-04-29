@@ -1,0 +1,15 @@
+<app-header></app-header>
+<div class="intro">
+    <div>
+        <p> Below are the features of this framework </p>
+        <div class="feature-list">
+            <mat-selection-list #featuresList>
+                <mat-list-option *ngFor="let feature of features" selected disabled>
+                {{feature}}
+                </mat-list-option>
+            </mat-selection-list>
+        </div>
+    </div>
+    <br>
+    <a [routerLink]="['/jokes']"> Show me some jokes </a>
+</div>
