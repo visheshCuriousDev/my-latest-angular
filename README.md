@@ -1,4 +1,4 @@
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1(Angular 7).
 
 This is a simple angular framework with all the must use features and structures. Below are the features of this framework,
 
