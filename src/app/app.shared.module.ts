@@ -1,17 +1,22 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from "./header/header.component";
-import {
-    MatDialogModule,
-    MatButtonModule
-  } from '@angular/material';
-
-//Utility Components
+import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+/* Material */
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
+import { HeaderComponent } from './header/header.component';
+// Utility Components
 import { ComfirmDialogComponent } from './utilities/comfirm-dialog/comfirm-dialog.component';
+
+
+
 
 @NgModule({
     imports: [
         CommonModule,
+        MatCheckboxModule,
+        MatListModule,
         MatDialogModule,
         MatButtonModule
     ],

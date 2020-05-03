@@ -1,9 +1,8 @@
-import { AuthService } from '../services/auth/auth.service';
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, Route } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
-import { MatDialog } from '@angular/material';
-import { ComfirmDialogComponent } from '../utilities/comfirm-dialog/comfirm-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +11,8 @@ export class AuthGaurdService implements CanActivate {
 
 
   constructor(private _authService: AuthService,
-    private _router: Router,
-    private dialog: MatDialog) {
+              private _router: Router,
+              private dialog: MatDialog) {
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
@@ -48,8 +47,8 @@ export class AuthGaurdService implements CanActivate {
     // };
 
     // return false;
-    
-    if (confirm("Are you sure, you want to leave? Chuck has lot more tricks up his sleave.")) {
+
+    if (confirm('Are you sure, you want to leave? Chuck has lot more tricks up his sleave.')) {
         return true;
     } else {
       return false;
