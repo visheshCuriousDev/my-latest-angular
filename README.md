@@ -61,7 +61,7 @@ A sample API has been added. This api is called in parent component. The service
 
 ### Included latest angular meterial
 
-The site is designed with angular material. The buttons, listing, etc.. are done using latest angular material 7.3.7.
+The site is designed with angular material. The buttons, listing, etc.. are done using latest angular material 9.2.0-next.0.
 
 ### Included shared modules
 
