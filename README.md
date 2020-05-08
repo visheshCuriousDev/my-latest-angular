@@ -14,26 +14,24 @@ This is a simple angular framework with all the must use features and structures
 
 ### Lazy Loading
 
-By lazy-loading a module we can tell Angular to load it only when its route is been visited, meaning that its weight won’t affect the size of your application at startup.
+By using lazy-loading, a module and it's files will be loaded only if that route path is visited in the browser. Thus this elimites need of downloading full website files at one. In this framework the folowing is done to demonstrate the lazy loading.
 
-Lazy loading is simply a diffent way of adding your routing and modules. In this framework the folowing is done to demonstrate the lazy loading.
+1. This framework has two major pages 'home' and 'jokes'. Home is the initial page that loads. Jokes is the seacondary page that will be loading using lazy loading. Thus initially the page downloads only home contents. After opening jokes page/route only the browser will ask for jokes page files and load. This way the initial load time of the site can be reduced.
+2. In **app-routing.module.ts** we must declare components that need to be lazy loaded like below. Thus only when we visit jokes path the module files will be downloaded will be loaded.
 
-1. There are two modules **app.module.ts** and **parent.module.ts**. they have there out routers and include their dependant components.
-2. When agular loads the parent component is not loaded since the app.module include parent component as a child route in **app-routing.module.ts**.
-
-        {path:'jokes', loadChildren:'./parent-component/parent-component.module#ParentComponentModule'},
+        {path:'jokes', loadChildren:'./jokes-component/jokes-component.module#jokesComponentModule'},
     
-3. Thus only then the route is changed to "/jokes". The parent module is loaded. This is it !!! You can add more heirarchy and create efficient application like this.
+3. This is it !!! You can add more heirarchy down the road and create efficient application like this.
 
 ### PWA (Progressive Web Applications) enabled
 
-You can look at what is PWA and how you can test [PWA]. This basically uses extensive browser caching methods and keeps the site alive without re-reneding components. This will impact the site performance largely.
+This basically uses extensive browser caching methods and keeps the site alive without re-reneding components. This will impact the site performance largely. You can look at what is PWA and how you can test [PWA]. 
 
 ### Router auth gaurd (canActivate & canDeactivate)
 
 For security many application will require the auth gaurds. We can test the vailidity of the URL or token whenever there is a change in route.
 
-    {path: '', component: ParentComponentComponent, canActivate: [AuthGaurdService], canDeactivate: [AuthGaurdService]},
+    {path: '', component: JokesComponent, canActivate: [AuthGaurdService], canDeactivate: [AuthGaurdService]},
 
 The AuthGaurdService is a injectable service where the code for canavtivate and canDeactivate is written.
 
@@ -57,7 +55,7 @@ This interceptor is added in the app modules.
 
 ### Sample API Implemented
 
-A sample API has been added. This api is called in parent component. The service file name is **jokes.service.ts**.
+A sample API has been added. This api is called in jokes component. The service file name is **jokes.service.ts**.
 
 ### Included latest angular meterial
 

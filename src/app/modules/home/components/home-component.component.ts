@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-intro-component',
-  templateUrl: './intro-component.component.html',
-  styleUrls: ['./intro-component.component.css']
+  selector: 'app-home-component',
+  templateUrl: './home-component.component.html',
+  styleUrls: ['./home-component.component.css']
 })
-export class IntroComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
   features: string[] = [
     'Lazy Loading',

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGaurdService } from 'src/app/core/gaurds/auth-gaurd.service';
-import { ParentComponentComponent } from './parent-component.component';
+import { JokesComponent } from './components/jokes-component.component';
 
 const routes: Routes = [
-    {path: '', component: ParentComponentComponent, canActivate: [AuthGaurdService], canDeactivate: [AuthGaurdService]},
+    {path: '', component: JokesComponent, canActivate: [AuthGaurdService], canDeactivate: [AuthGaurdService]},
     {path: '**', redirectTo: '/404'}
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 
-export class ParentRoutingModule {}
+export class JokesRoutingModule {}

@@ -3,11 +3,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { JokesService } from 'src/app/services/jokes/jokes.service';
 
 @Component({
-  selector: 'app-parent-component',
-  templateUrl: './parent-component.component.html',
-  styleUrls: ['./parent-component.component.css']
+  selector: 'app-jokes-component',
+  templateUrl: './jokes-component.component.html',
+  styleUrls: ['./jokes-component.component.css']
 })
-export class ParentComponentComponent implements OnInit {
+export class JokesComponent implements OnInit {
 
   joke: any;
 

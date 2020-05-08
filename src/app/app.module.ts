@@ -11,14 +11,14 @@ import { AppComponent } from './app.component';
 import { MyHttpInterceptor } from './core/app-http.interceptor';
 import { AccessRestrictedComponent } from './modules/access-restricted/access-restricted.component';
 import { Access404Component } from './modules/access404/access404.component';
-import { IntroComponent } from './modules/intro-component/intro-component.component';
+import { HomeComponent } from './modules/home/components/home-component.component';
 import { SharedModule } from './shared/app.shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    IntroComponent,
+    HomeComponent,
     AccessRestrictedComponent,
     Access404Component
   ],
