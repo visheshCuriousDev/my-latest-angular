@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ParentRoutingModule} from './parent-routing.module';
-import { ParentComponentComponent } from './parent-component.component';
-import { JokesService } from '../services/jokes/jokes.service';
-import { SharedModule } from '../app.shared.module';
+import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { JokesService } from 'src/app/services/jokes/jokes.service';
+import { SharedModule } from 'src/app/shared/app.shared.module';
+import { ParentComponentComponent } from './parent-component.component';
+import { ParentRoutingModule } from './parent-routing.module';
 
 @NgModule({
   declarations: [ParentComponentComponent],

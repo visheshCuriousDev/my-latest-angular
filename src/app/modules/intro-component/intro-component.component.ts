@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-intro-component',
@@ -9,10 +8,10 @@ import { HeaderComponent } from '../header/header.component';
 export class IntroComponent implements OnInit {
 
   features: string[] = [
-    'Lazy Loading', 
-    'PWA enabled', 
-    'Router auth gaurd (canActivate & canDeactivate)', 
-    'Default error routing done for invalid paths', 
+    'Lazy Loading',
+    'PWA enabled',
+    'Router auth gaurd (canActivate & canDeactivate)',
+    'Default error routing done for invalid paths',
     'HTTP client module',
     'HTTP client module interceptor',
     'Sample API Implemented',
