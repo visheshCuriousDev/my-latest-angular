@@ -6,3 +6,9 @@
   <button mat-raised-button color="primary" (click)="getJokes()">Get New joke</button>
   <button class="margin-left-15" mat-raised-button color="warn" [routerLink]="['/home']"> Goto Home Page </button>
 </div>
+
+<!-- Loading -->
+<ngx-spinner [name]="'jokes-loader'" bdOpacity = 0.9 bdColor = "rgba(51,51,51,0.35)" size = "medium"
+            color = "#fff" type = "square-jelly-box" [fullScreen] = "true">
+    <p style="color: ff8e8e" > Loading... </p>
+</ngx-spinner>

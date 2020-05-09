@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'assets/scss/_variable';
+
+/* Snackbar styles */
+.mat-snack-bar-container {
+    background: $white;
+    color: $primary-color;
+    border: 1px solid $border-color;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 24px auto !important;
+    max-width: 24vw !important;
+    button.mat-button {
+        border: 1px solid transparent;
+        max-height: inherit;
+        span.mat-button-wrapper {
+            color: $base-color;
+        }
+        &:hover,
+        &:focus {
+            border: 1px solid transparent;
+            background: transparent;
+            span.mat-button-wrapper {
+                color: $base-color;
+            }
+        }
+        .mat-button-ripple.mat-ripple {
+            display: none;
+        }
+    }
+    simple-snack-bar {
+        &::before {
+            position: relative;
+            top: 2px;
+        }
+    }
+}
+.snack {
+    simple-snack-bar:before {
+        margin-right: 10px;
+    }
+    &.snack-error {
+        simple-snack-bar:before {
+           content: url("assets/images/snack-bar/error.png");
+        }
+    }
+    &.snack-warning {
+        simple-snack-bar:before {
+            content: url("assets/images/snack-bar/warning.png");
+        }
+    }
+    &.snack-info {
+        simple-snack-bar:before {
+            content: url("assets/images/snack-bar/info.png");
+        }
+    }
+    &.snack-success {
+        simple-snack-bar:before {
+            content: url("assets/images/snack-bar/success.png");
+        }
+    }
+}
+
+/* Margin styles */
+.mar-l-15 {
+    margin-left: 15px !important;
+}

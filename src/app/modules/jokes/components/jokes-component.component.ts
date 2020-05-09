@@ -5,7 +5,7 @@ import { JokesService } from 'src/app/services/jokes/jokes.service';
 @Component({
   selector: 'app-jokes-component',
   templateUrl: './jokes-component.component.html',
-  styleUrls: ['./jokes-component.component.css']
+  styleUrls: ['./jokes-component.component.scss']
 })
 export class JokesComponent implements OnInit {
 
@@ -21,9 +21,11 @@ export class JokesComponent implements OnInit {
   }
 
   getJokes() {
+    this.spinner.show('jokes-loader');
     this.jokes.getJokes().subscribe(res => {
       this.joke =  res;
     });
+    this.spinner.hide('jokes-loader');
   }
 
 }

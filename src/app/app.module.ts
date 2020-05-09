@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+/* Added snackbar here bacause we use in interceptor */
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { NgxSpinnerModule } from 'ngx-spinner';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +14,6 @@ import { AccessRestrictedComponent } from './modules/access-restricted/access-re
 import { Access404Component } from './modules/access404/access404.component';
 import { HomeComponent } from './modules/home/components/home-component.component';
 import { SharedModule } from './shared/app.shared.module';
-
 
 @NgModule({
   declarations: [
@@ -28,8 +28,8 @@ import { SharedModule } from './shared/app.shared.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxSpinnerModule,
     SharedModule,
+    MatSnackBarModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [

@@ -1,36 +1,42 @@
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor
-} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { delay, tap } from 'rxjs/operators';
+import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 
-
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class MyHttpInterceptor implements HttpInterceptor {
-  constructor(private spinner: NgxSpinnerService) {}
-  
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
-    this.spinner.show();
-    let self = this;
 
+  constructor(
+    private snackbarService: SnackbarService
+  ) {}
+
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+    const self = this;
+
+    /* CAN DO
+      Modify request to add headers here
+    */
+
+    /* Return the request to process */
     return next.handle(request)
     .pipe(tap(
-      evt => {
+      (evt: any) => {
           /* If response is success */
-          if(evt && evt["status"] == 200){
-            self.spinner.hide();
+          if (evt && evt.status == 200) {
+            /* If scussess do anything */
           } else {
             delay(500);
           }
       },
-      error => {
-        self.spinner.hide();
+      (error: any) => {
+        /* Failed http */
+        if (error.message) {
+          this.snackbarService.showError(error.message);
+        } else {
+          this.snackbarService.showError();
+        }
       })
     );
 
