@@ -24,8 +24,8 @@ export class JokesComponent implements OnInit {
     this.spinner.show('jokes-loader');
     this.jokes.getJokes().subscribe(res => {
       this.joke =  res;
+      this.spinner.hide('jokes-loader');
     });
-    this.spinner.hide('jokes-loader');
   }
 
 }

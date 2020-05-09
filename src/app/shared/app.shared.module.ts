@@ -7,7 +7,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { SnackbarService } from '../services/snackbar/snackbar.service';
 /* Utility Components */
 import { ComfirmDialogComponent } from '../utilities/comfirm-dialog/comfirm-dialog.component';
 /* Common */
@@ -37,7 +36,7 @@ import { HeaderComponent } from './header/header.component';
         MatButtonModule,
         NgxSpinnerModule
     ],
-    providers: [SnackbarService],
+    providers: [],
     entryComponents: [ComfirmDialogComponent]
 })
 export class SharedModule {}
