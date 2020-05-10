@@ -10,6 +10,17 @@
             </mat-selection-list> -->
             <mat-accordion #featureList class="feature-list">
                 <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>SCSS</mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="scss-desc">
+                    <p>
+                        This framework usses <a target="_blank" href="https://sass-lang.com/documentation/syntax">SCSS</a>
+                        for better styles formating and esier syntax.
+                    </p>
+                  </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
                     <mat-expansion-panel-header>
                       <mat-panel-title>Lazy Loading</mat-panel-title>
                     </mat-expansion-panel-header>
@@ -41,15 +52,126 @@
                       </ol>
                     </div>
                 </mat-expansion-panel>
-                <mat-expansion-panel [disabled]="true" *ngFor="let feature of features">
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      {{feature}}
-                    </mat-panel-title>
-                    <!-- <mat-panel-description>
-                      Type your name and age
-                    </mat-panel-description> -->
-                  </mat-expansion-panel-header>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>PWA (Progressive Web Applications) enabled</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="pwa-desc">
+                      <p>
+                        This basically uses extensive browser caching methods and keeps the site alive without re-reneding components.
+                        This will impact the site performance largely.
+                        You can look at what is PWA and how you can test 
+                        <a target="_blank" href="https://dzone.com/articles/developing-pwa-using-angular-7">[PWA]</a>.
+                      </p>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>Router auth gaurd (canActivate & canDeactivate)</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="router-desc">
+                      <p>
+                        For security many application will require the auth gaurds. We can test the vailidity of the URL or token whenever there is a change in route.
+                      </p>
+                      <div class="code-block">
+                        {{ "{path: '', component: JokesComponent, canActivate: [AuthGaurdService], canDeactivate: [AuthGaurdService]}" }}
+                      </div>
+                      <p>
+                        The
+                        <a target="_blank" href="https://github.com/vishesh1king/angular7-framework-latest/blob/master/src/app/core/gaurds/auth-gaurd.service.ts">
+                          AuthGaurdService
+                        </a>
+                        is a injectable service where the code for canavtivate and canDeactivate is written.
+                      </p>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>Default error routing done for invalid paths</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="404-desc">
+                      <p>
+                        In routers if any invalid route is given. The page will redirect to 404. This is a simple redirection using which we can show creative page for 404.
+                      </p>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>HTTP client module</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="http-client-desc">
+                      <p>
+                        A HTTP client module is must for latest versions of angular. The HTTP client module is used in the framework for handling HTTP requests.
+                        <a target="_blank" href="https://angular.io/api/common/http/HttpClientModule">About HTTP client module</a>
+                      </p>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>HTTP client module interceptor</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="http-interceptor-desc">
+                      <p>
+                        **app-http.interceptor** is a interceptor for HTTP client module. This intercector is like a middleware,
+                        we can perform common activities like showing / hiding loading icon before and after HTTP requests.
+                        <a target="_blank" href="https://angular.io/api/common/http/HttpInterceptor">More on interceptors</a>
+                      </p>
+                      <p>
+                        This interceptor is added in the app modules.
+                      </p>
+                      <div class="code-block">
+                        providers: [
+                            {{ '{ provide: HTTP_INTERCEPTORS, useClass: MyHttpInterceptor, multi: true }' }}
+                        ],
+                      </div>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>Sample API implemented</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="sample-api-desc">
+                      <p>
+                        A sample API has been added. This api is called in jokes component. The service file name is 
+                        <a target="_blank" href="https://github.com/vishesh1king/angular7-framework-latest/blob/master/src/app/services/jokes/jokes.service.ts">
+                          **jokes.service.ts**.
+                        </a>
+                      </p>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>Included latest angular meterial</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="material-desc">
+                      <p>
+                        The site is designed with angular material. The buttons, listing, etc.. are done using latest angular material <b>9.2.0-next.0</b>. This will give a clean look.
+                      </p>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>Included shared modules</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="shared-desc">
+                      <p>
+                        Most of the time in any given application you will have to use common components like Headers, Loading, etc. These remail common accross all modules.
+                        Thus here a shared module is created. It imports and exports all the common modules.
+                        Thus just import this module in which ever module requires these common stuff. The file name is
+                        <a target="_blank" href="https://github.com/vishesh1king/angular7-framework-latest/blob/master/src/app/shared/app.shared.module.ts">**app.shared.module.ts**</a>.
+                      </p>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>App constans and configs</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="shared-desc">
+                      <p>
+                        Ofent we tend to use lot of same variables in various conponents. It is a common practice to have these under one file. Whre ever necessary we can import this file and use the varable. This way making changes will be easy.
+                        <a target="_blank" href="https://github.com/vishesh1king/angular7-framework-latest/blob/master/src/app/utilities/constants/AppConstants.ts">AppConstants.ts</a>
+                      </p>
+                    </div>
                 </mat-expansion-panel>
             </mat-accordion>
         </div>

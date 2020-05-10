@@ -7,17 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  features: string[] = [
-    'PWA enabled',
-    'Router auth gaurd (canActivate & canDeactivate)',
-    'Default error routing done for invalid paths',
-    'HTTP client module',
-    'HTTP client module interceptor',
-    'Sample API Implemented',
-    'Included latest angular meterial',
-    'Included shared modules'
-  ];
-
   constructor() { }
 
   ngOnInit() {
