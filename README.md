@@ -14,7 +14,7 @@ This is a simple angular framework with all the must use features and structures
 
 ### Lazy Loading
 
-By using lazy-loading, a module and it's files will be loaded only if that route path is visited in the browser. Thus this elimites need of downloading full website files at one. In this framework the folowing is done to demonstrate the lazy loading.
+By using lazy-loading, a module and it's files will be loaded only on demand (i.e) if that route path of the page is visited in the browser. Thus this elimites need of downloading full website files at one. In this framework the folowing is done to demonstrate the lazy loading.
 
 1. This framework has two major pages 'home' and 'jokes'. Home is the initial page that loads. Jokes is the seacondary page that will be loading using lazy loading. Thus initially the page downloads only home contents. After opening jokes page/route only the browser will ask for jokes page files and load. This way the initial load time of the site can be reduced.
 2. In **app-routing.module.ts** we must declare components that need to be lazy loaded like below. Thus only when we visit jokes path the module files will be downloaded will be loaded.

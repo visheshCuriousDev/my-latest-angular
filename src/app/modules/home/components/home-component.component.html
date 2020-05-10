@@ -3,11 +3,55 @@
     <div>
         <p> Below are the features of this framework </p>
         <div class="feature-list">
-            <mat-selection-list #featuresList>
+            <!-- <mat-selection-list #featuresList>
                 <mat-list-option *ngFor="let feature of features" selected disabled>
                 {{feature}}
                 </mat-list-option>
-            </mat-selection-list>
+            </mat-selection-list> -->
+            <mat-accordion #featureList class="feature-list">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>Lazy Loading</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="lazy-desc">
+                      <p>
+                          By using lazy-loading, a module and it's files will be loaded only on demand (i.e) if that page route path is visited in the browser.
+                          Thus this elimites need of downloading full website files at one.
+                          In this framework the folowing is done to demonstrate the lazy loading.
+                      </p>
+                      <ol>
+                        <li>
+                          This framework has two major pages <b>'home'</b> and <b>'jokes'</b>.
+                          Home is the initial page that loads.
+                          Jokes is the seacondary page that will be loading using lazy loading.
+                          Thus initially the page downloads only home contents. After opening jokes page/route only the browser will ask for jokes page files and load.
+                          This way the initial load time of the site can be reduced.
+                        </li>
+                        <li>
+                          In **app-routing.module.ts** we must declare components that need to be lazy loaded like below.
+                          Thus only when we visit jokes path the module files will be downloaded will be loaded.
+                          <br>
+                          <div class="code-block">
+                            {{'{'}}path:'jokes', loadChildren:'./jokes-component/jokes-component.module#jokesComponentModule'{{'}'}},
+                          </div>
+                        </li>
+                        <li>
+                          This is it !!! You can add more heirarchy down the road and create efficient application like this.
+                        </li>
+                      </ol>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel [disabled]="true" *ngFor="let feature of features">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      {{feature}}
+                    </mat-panel-title>
+                    <!-- <mat-panel-description>
+                      Type your name and age
+                    </mat-panel-description> -->
+                  </mat-expansion-panel-header>
+                </mat-expansion-panel>
+            </mat-accordion>
         </div>
     </div>
     <br>

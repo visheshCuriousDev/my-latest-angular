@@ -3,6 +3,12 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import 'assets/scss/_variable';
 
+/* Set basic font size and default styles */
+body {
+    font-family: $defaultFamily;
+    font-size: $regular-font;
+}
+
 /* Snackbar styles */
 .mat-snack-bar-container {
     background: $white;
@@ -62,6 +68,31 @@
             content: url("assets/images/snack-bar/success.png");
         }
     }
+}
+
+/* Ordered list styles */
+ol {
+    li {
+        &:not(:first-child) {
+            margin-top: 10px;
+        }
+    }
+}
+
+/* Matrial according styles overwritting */
+.feature-list{
+    .mat-expansion-panel-header-title{
+        font-size: 16px;
+    }
+}
+
+/* Code block ctyles */
+.code-block {
+    background-color: #dedede;
+    padding: 10px;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 5px;
 }
 
 /* Margin styles */

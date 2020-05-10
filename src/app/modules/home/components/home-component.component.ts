@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   features: string[] = [
-    'Lazy Loading',
     'PWA enabled',
     'Router auth gaurd (canActivate & canDeactivate)',
     'Default error routing done for invalid paths',

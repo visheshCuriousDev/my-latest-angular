@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-/* Material */
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
+/* Material */
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -20,7 +21,8 @@ import { HeaderComponent } from './header/header.component';
         MatDialogModule,
         MatSelectModule,
         MatButtonModule,
-        NgxSpinnerModule
+        NgxSpinnerModule,
+        MatExpansionModule
     ],
     declarations: [
         HeaderComponent,
@@ -34,7 +36,8 @@ import { HeaderComponent } from './header/header.component';
         MatDialogModule,
         MatSelectModule,
         MatButtonModule,
-        NgxSpinnerModule
+        NgxSpinnerModule,
+        MatExpansionModule
     ],
     providers: [],
     entryComponents: [ComfirmDialogComponent]
