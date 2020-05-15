@@ -1,0 +1,12 @@
+.sidebar-scroll {
+    background-color: #7479ad63;
+    width: fit-content !important;
+    padding: 10px 20px;
+    .sidebar-nav{
+        list-style: none;
+        padding-left: 0px;
+        .nav-item {
+            margin: 10px 9px;
+        }
+    }
+}

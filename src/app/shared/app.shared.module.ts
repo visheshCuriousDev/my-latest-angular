@@ -7,12 +7,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+import { PerfectScrollbarConfigInterface, PerfectScrollbarModule, PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { NgxSpinnerModule } from 'ngx-spinner';
 /* Utility Components */
 import { ComfirmDialogComponent } from '../utilities/comfirm-dialog/comfirm-dialog.component';
-/* Common */
-import { HeaderComponent } from './header/header.component';
 
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  wheelPropagation: true,
+};
 @NgModule({
     imports: [
         CommonModule,
@@ -22,14 +24,13 @@ import { HeaderComponent } from './header/header.component';
         MatSelectModule,
         MatButtonModule,
         NgxSpinnerModule,
-        MatExpansionModule
+        MatExpansionModule,
+        PerfectScrollbarModule
     ],
     declarations: [
-        HeaderComponent,
         ComfirmDialogComponent
     ],
     exports: [
-        HeaderComponent,
         ComfirmDialogComponent,
         MatCheckboxModule,
         MatListModule,
@@ -37,9 +38,12 @@ import { HeaderComponent } from './header/header.component';
         MatSelectModule,
         MatButtonModule,
         NgxSpinnerModule,
-        MatExpansionModule
+        MatExpansionModule,
+        PerfectScrollbarModule
     ],
-    providers: [],
+    providers: [
+        { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG }
+    ],
     entryComponents: [ComfirmDialogComponent]
 })
 export class SharedModule {}
