@@ -82,7 +82,7 @@ ol {
 /* Matrial according styles overwritting */
 .feature-list{
     .mat-expansion-panel-header-title{
-        font-size: 16px;
+        font-size: $medium-font;
     }
 }
 
@@ -103,4 +103,78 @@ ol {
 /* Padding styles */
 .pad-l-10 {
     padding-left: 10px;
+}
+
+
+/* Side bar styles */
+.home {
+    width: 100%;
+    display: inline-flex;
+    /* Side bar navigation element */
+    .sidebar-nav{
+        list-style: none;
+        padding-left: 0px;
+        margin: 0px;
+        .nav-item {
+            margin-top: 10px;
+            padding: 15px 8px;
+            display: inline-flex;
+            cursor: pointer;
+            color: $menu-icon-color;
+            /* Navigation title */
+            .nav-title {
+                margin-left: 10px;
+                opacity:0;
+            }
+            /* icon style */
+            .sidebar-icon {
+                margin-top: -5px;
+                font-size: $menu-icon-size;
+            }
+            &:hover {
+                color: $active;
+                transition: .2s all linear!important;
+                -o-transition: .2s linear; /* opera */
+                -ms-transition: .2s linear; /* IE 10 */
+                -moz-transition: .2s linear; /* Firefox */
+                -webkit-transition: .2s linear; /*safari and chrome */
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    /* Transitions for side bar open and close */
+    .home-sidebar {
+        background-color: $white;
+        box-shadow: $box-shadow-black;
+        width: fit-content !important;
+        max-width: 50px;
+        margin-top: 2px;
+        /* On nover in nav bar expand */
+        &:hover {
+            max-width: 150px;
+            transform: translateX(0);
+            transition: 1s all linear!important;
+            -o-transition: 1s linear; /* opera */
+            -ms-transition: 1s linear; /* IE 10 */
+            -moz-transition: 1s linear; /* Firefox */
+            -webkit-transition: 1s linear; /*safari and chrome */
+            
+            .nav-title{
+                transition: 1s all linear !important;
+                -o-transition: 1s linear; /* opera */
+                -ms-transition: 1s linear; /* IE 10 */
+                -moz-transition: 1s linear; /* Firefox */
+                -webkit-transition: 1s linear; /*safari and chrome */
+                opacity: 1 !important;
+                font-size: $regular-font;
+            }   
+        }
+    }
+}
+
+/* Active class */
+.active {
+    color: $active;
 }

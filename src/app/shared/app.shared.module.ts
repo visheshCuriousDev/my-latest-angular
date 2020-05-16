@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+/* Material */
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
-/* Material */
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+/* Others */
 import { PerfectScrollbarConfigInterface, PerfectScrollbarModule, PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { NgxSpinnerModule } from 'ngx-spinner';
 /* Utility Components */
@@ -25,7 +27,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         MatButtonModule,
         NgxSpinnerModule,
         MatExpansionModule,
-        PerfectScrollbarModule
+        PerfectScrollbarModule,
+        MatIconModule
     ],
     declarations: [
         ComfirmDialogComponent
@@ -39,7 +42,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
         MatButtonModule,
         NgxSpinnerModule,
         MatExpansionModule,
-        PerfectScrollbarModule
+        PerfectScrollbarModule,
+        MatIconModule
     ],
     providers: [
         { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG }
