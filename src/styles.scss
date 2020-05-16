@@ -110,6 +110,8 @@ ol {
 .home {
     width: 100%;
     display: inline-flex;
+    max-height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
     /* Side bar navigation element */
     .sidebar-nav{
         list-style: none;
@@ -128,7 +130,7 @@ ol {
             }
             /* icon style */
             .sidebar-icon {
-                margin-top: -5px;
+                margin-top: -7px;
                 font-size: $menu-icon-size;
             }
             &:hover {
@@ -171,6 +173,10 @@ ol {
                 font-size: $regular-font;
             }   
         }
+    }
+    .home-content {
+        width: 100%;
+        height: calc(100vh - 60px);
     }
 }
 
