@@ -1,17 +1,28 @@
-<mat-form-field [formGroup]="group">
-    <mat-select placeholder="" #singleSelect name="countryCodeNum" [formControl]="contryCode">
-      <mat-option>
-        <ngx-mat-select-search [formControl]="countryCodeSearchVal"
-            placeholderLabel="Search phone code" 
-            noEntriesFoundLabel="'No matching codes found'"></ngx-mat-select-search>
-      </mat-option>
-      <mat-option [value]="code['phone_code']" *ngFor="let code of filterCountryCode"
-                  (click)="isPhoneValid(code['name'])">
-        {{'+ ' + code['phone_code']}}
-        <span class="phone-code-float">({{code['name']}})</span>
-      </mat-option>
-    </mat-select>
-</mat-form-field>
-<app-input [placeholder]="'Mobile number'" [name]="'Mobile number'" [id]="'contact_mobile_number'"
-    [formGroup]="group" [control]="mobileNumber" [onlyNumber]="true"
-    [errorMessage]="errorMessage" (onBlur)="isPhoneValid()"></app-input>
+<div class="mobile-number">
+  <div class="mobile-code">
+    <mat-form-field [formGroup]="group" class="mobile-code-form">
+      <mat-select placeholder="" #singleSelect name="countryCodeNum" [formControl]="contryCode">
+        <mat-option>
+          <ngx-mat-select-search [formControl]="countryCodeSearchVal"
+              placeholderLabel="Search phone code" 
+              noEntriesFoundLabel="'No matching codes found'"></ngx-mat-select-search>
+        </mat-option>
+        <mat-option [value]="code['phone_code']" *ngFor="let code of filterCountryCode"
+                    (click)="isPhoneValid(code['name'])">
+          {{'+ ' + code['phone_code']}}
+          <span class="phone-code-float">({{code['name']}})</span>
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="contryCode.touched && contryCode.invalid">
+        {{
+          (contryCode.errors.required) ? "Please enter country code" : 'Please enter a valid country code'
+        }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="mobile-input">
+    <app-input [placeholder]="'Mobile number'" [name]="'Mobile number'" [id]="'contact_mobile_number'"
+      [formGroup]="group" [control]="mobileNumber" [onlyNumber]="true"
+      [errorMessage]="errorMessage" (onBlur)="isPhoneValid()"></app-input>
+  </div>
+</div>

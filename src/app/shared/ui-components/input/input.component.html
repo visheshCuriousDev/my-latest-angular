@@ -5,7 +5,8 @@
   </mat-form-field> -->
     <div class="form-control" [formGroup]="formGroup"
           [ngClass]="extraClass" [class.invalid]="control.touched && control.invalid">
-        <!-- <mat-form-field [formControl]="control"> -->
+        <mat-form-field>
+          <mat-label *ngIf="label">{{label}}</mat-label>
           <input matInput
             [type]="type"
             [placeholder]="placeholder"
@@ -20,16 +21,16 @@
             [appNoSpace]="noSpace"
             autocomplete="off"
             (blur)="blur()" />
-          <p *ngIf="errorMessage" class="error-message">{{errorMessage}}</p>
-          <p *ngIf="control.touched && control.invalid" class="error-message">
+          <mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error>
+          <mat-error *ngIf="control.touched && control.invalid">
             {{
               (control.errors.required) ? "Please enter "+name.toLowerCase() : 
               (control.errors.minlength) ? name + " must be greater than " + (control.errors.minlength.requiredLength-1) : 
               (control.errors.maxlength) ? name + " must be lesser than " + control.errors.maxlength.requiredLength :
               'Please enter a valid '+name
             }}
-          </p>
-        <!-- </mat-form-field> -->
+          </mat-error>
+        </mat-form-field>
     </div>
   </ng-container>
   

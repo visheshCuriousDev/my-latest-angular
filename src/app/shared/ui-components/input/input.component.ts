@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AppConstants } from 'src/app/utilities/constants/AppConstants';
 
@@ -8,6 +8,12 @@ import { AppConstants } from 'src/app/utilities/constants/AppConstants';
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent implements OnInit {
+
+  constructor(
+    private ref: ChangeDetectorRef
+  ) {
+    this.onBlur = new EventEmitter();
+  }
 
   @Input() appAutoFocus = false;
   @Input() formGroup: FormGroup;
@@ -37,8 +43,10 @@ export class InputComponent implements OnInit {
   // tslint:disable-next-line: no-output-on-prefix
   @Output() onBlur: EventEmitter<boolean>;
 
-  constructor() {
-    this.onBlur = new EventEmitter();
+  ngOnChanges(change) {
+    if (change.errorMessage) {
+      this.ref.detectChanges();
+    }
   }
 
   ngOnInit() { }

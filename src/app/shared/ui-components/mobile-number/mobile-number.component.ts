@@ -59,10 +59,12 @@ export class MobileNumberComponent implements OnInit {
     if (codeName) {
       this.selectedCodeName = codeName;
     }
-    if (this.mobileNumber.valid && this.mobileNumber.value) {
+    if (this.mobileNumber.valid && this.mobileNumber.value && this.selectedCodeName) {
       const phoneCheck = phoneUtil.parseAndKeepRawInput(this.mobileNumber.value, this.selectedCodeName);
       if (!phoneUtil.isValidNumber(phoneCheck)) {
         this.errorMessage = 'Please enter a valid phone number';
+      } else {
+        this.errorMessage = null;
       }
     } else {
       this.errorMessage = null;
