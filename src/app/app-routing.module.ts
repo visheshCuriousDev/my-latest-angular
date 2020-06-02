@@ -9,6 +9,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent, canActivate: [AuthGaurdService]},
   {path: 'jokes', loadChildren: () => import('./modules/jokes/jokes-component.module').then(m => m.JokesComponentModule)},
+  {path: 'examples', loadChildren: () => import('./modules/examples/examples.module').then(m => m.ExamplesModule)},
   {path: 'restricted', component: AccessRestrictedComponent, canActivate: [AuthGaurdService]},
   {path: '404', component: Access404Component, canActivate: [AuthGaurdService]},
   {path: '**', component: Access404Component}

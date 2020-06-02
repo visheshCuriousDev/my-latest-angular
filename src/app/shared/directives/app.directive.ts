@@ -1,34 +1,5 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
-// @Directive({
-//   selector: '[DecimalNumber]'
-// })
-// export class DecimalNumber {
-
-//   regexStr = '^[0-9\.]*$';
-
-//   constructor(private el: ElementRef) {
-//   }
-
-//   @Input() DecimalNumber: boolean;
-
-//   @HostListener('keydown', ['$event']) onKeyDown(event) {
-//     const e = <KeyboardEvent> event;
-//     if (this.DecimalNumber) {
-//       if ([46, 8, 9, 27, 13].indexOf(e.keyCode) !== -1) {
-//         return;
-//       }
-//       const ch = (e.key);
-//       const regEx = new RegExp(this.regexStr);
-//       if (regEx.test(ch)) {
-//         return;
-//       } else {
-//         e.preventDefault();
-//       }
-//     }
-//   }
-// }
-
 @Directive({
   selector: '[OnlyNumber]'
 })
@@ -42,7 +13,7 @@ export class OnlyNumber {
   @Input() OnlyNumber: boolean;
 
   @HostListener('keydown', ['$event']) onKeyDown(event) {
-    const e = <KeyboardEvent> event;
+    const e = event as KeyboardEvent;
     if (this.OnlyNumber) {
       if ([46, 8, 9, 27, 13, 37, 39, 40, 38].indexOf(e.keyCode) !== -1) {
         return;
@@ -66,7 +37,7 @@ export class OnlyNumber {
   }
 
   @HostListener('paste', ['$event']) onPaste(event) {
-    const e = <KeyboardEvent> event;
+    const e = event as KeyboardEvent;
     if (this.OnlyNumber) {
       let numbers = event.clipboardData.getData('text/plain').match(/[0-9]/g);
       if (numbers && numbers.length > 0) {
@@ -97,7 +68,7 @@ export class OnlyAlphabet {
   @Input() OnlyAlphabet: boolean;
 
   @HostListener('keydown', ['$event']) onKeyDown(event) {
-    const e = <KeyboardEvent> event;
+    const e = event as KeyboardEvent;
     if (this.OnlyAlphabet) {
       if ([46, 8, 9, 27, 13].indexOf(e.keyCode) !== -1) {
         return;
@@ -113,69 +84,6 @@ export class OnlyAlphabet {
   }
 }
 
-
-// @Directive({
-//   selector: '[OnlyAphaNumber]'
-// })
-// export class OnlyAphaNumber {
-
-//   regexStr = '^[ 0-9a-zA-Z\-\&]*$';
-
-//   constructor(private el: ElementRef) {
-//   }
-
-//   @Input() OnlyAphaNumber: boolean;
-
-//   @HostListener('keydown', ['$event']) onKeyDown(event) {
-//     const e = <KeyboardEvent> event;
-//     if (this.OnlyAphaNumber) {
-//       if ([46, 8, 9, 27, 13].indexOf(e.keyCode) !== -1) {
-//         return;
-//       }
-//       const ch = (e.key);
-//       const regEx = new RegExp(this.regexStr);
-//       if (regEx.test(ch)) {
-//         return;
-//       } else {
-//         e.preventDefault();
-//       }
-//     }
-//   }
-// }
-
-
-
-
-@Directive({
-  selector: '[OnlyPhone]'
-})
-export class OnlyPhone {
-
-  regexStr = '^[0-9-/(/)/]*$';
-
-  constructor(private el: ElementRef) {
-  }
-
-  @Input() OnlyPhone: boolean;
-
-  @HostListener('keydown', ['$event']) onKeyDown(event) {
-    const e = <KeyboardEvent> event;
-    if (this.OnlyPhone) {
-      if ([46, 8, 9, 27, 13].indexOf(e.keyCode) !== -1) {
-        return;
-      }
-      const ch = (e.key);
-      const regEx = new RegExp(this.regexStr);
-      if (regEx.test(ch)) {
-        return;
-      } else {
-        e.preventDefault();
-      }
-    }
-  }
-}
-
-
 @Directive({
   selector: '[OnlyAlphaNumeric]'
 })
@@ -189,48 +97,11 @@ export class OnlyAlphaNumeric {
   @Input() OnlyAlphaNumeric: boolean;
 
   @HostListener('keydown', ['$event']) onKeyDown(event) {
-    const e = <KeyboardEvent> event;
+    const e = event as KeyboardEvent;
     if (this.OnlyAlphaNumeric) {
       if ([46, 8, 9, 27, 13, 37, 39].indexOf(e.keyCode) !== -1) {
         return;
       }
-      const ch = (e.key);
-      const regEx = new RegExp(this.regexStr);
-      if (regEx.test(ch)) {
-        return;
-      } else {
-        e.preventDefault();
-      }
-    }
-  }
-}
-
-/* Only aplpha numeric with - and _ allowed */
-@Directive({
-  selector: '[OnlyAlphaNumericHyphen]'
-})
-export class OnlyAlphaNumericHyphen {
-
-  regexStr = '^[a-zA-Z0-9-_ ]*$';
-
-  constructor(private el: ElementRef) {
-  }
-
-  @Input() OnlyAlphaNumericHyphen: boolean;
-
-  @HostListener('keydown', ['$event']) onKeyDown(event) {
-    const e: any = <KeyboardEvent> event;
-    /* const k = document.all ? e.keyCode : e.which; */
-    if (this.OnlyAlphaNumericHyphen) {
-      if ([46, 8, 9, 27, 13, 37, 39].indexOf(e.keyCode) !== -1) {
-        return;
-      }
-      /* if ((k > 64 && k < 91) || (k > 96 && k < 123) || k === 8 || k === 32 || (k >= 48 && k <= 57) || k === 95 || k === 45) {
-        return true;
-      } else {
-        e.preventDefault();
-        return false;
-      } */
       const ch = (e.key);
       const regEx = new RegExp(this.regexStr);
       if (regEx.test(ch)) {
@@ -255,7 +126,7 @@ export class OnlyAlphaNumericEmail {
   @Input() OnlyAlphaNumericEmail: boolean;
 
   @HostListener('keydown', ['$event']) onKeyDown(event) {
-    const e = <KeyboardEvent> event;
+    const e = event as KeyboardEvent;
     if (this.OnlyAlphaNumericEmail) {
       if ([46, 8, 9, 27, 13, 37, 39].indexOf(e.keyCode) !== -1) {
         return;
@@ -284,7 +155,7 @@ export class OnlyAlphaName {
   @Input() OnlyAlphaName: boolean;
 
   @HostListener('keydown', ['$event']) onKeyDown(event) {
-    const e = <KeyboardEvent> event;
+    const e = event as KeyboardEvent;
     if (this.OnlyAlphaName) {
       if ([46, 8, 9, 27, 13, 37, 39].indexOf(e.keyCode) !== -1) {
         return;
@@ -300,32 +171,54 @@ export class OnlyAlphaName {
   }
 }
 
-// @Directive({
-//   selector: '[OnlyAlphabetDot]'
-// })
-// export class OnlyAlphabetDot {
+@Directive({
+  selector: '[DecimalNumber]'
+})
+export class DecimalNumber {
 
-//   regexStr = '^[ a-zA-Z.]*$';
+  regexStr = '^[0-9\.]*$';
+  // regexStr = /^[0-9]+(.[0-9]{1,3})?$/;
 
-//   constructor(private el: ElementRef) {
-//   }
+  constructor(private el: ElementRef) {
+  }
 
-//   @Input() OnlyAlphabetDot: boolean;
+  @Input() decimalNumber: boolean;
 
-//   @HostListener('keydown', ['$event']) onKeyDown(event) {
-//     const e = <KeyboardEvent> event;
-//     if (this.OnlyAlphabetDot) {
-//       if ([46, 8, 9, 27, 13, 37, 39].indexOf(e.keyCode) !== -1) {
-//         return;
-//       }
-//       const ch = (e.key);
-//       const regEx = new RegExp(this.regexStr);
-//       if (regEx.test(ch)) {
-//         return;
-//       } else {
-//         e.preventDefault();
-//       }
-//     }
-//   }
-// }
+  @HostListener('keydown', ['$event']) onKeyDown(event) {
+    const e = event as KeyboardEvent;
+    if (this.decimalNumber) {
+      if ([46, 8, 9, 27, 13, 37, 38, 39, 40].indexOf(e.keyCode) !== -1) {
+        return;
+      }
+      const ch = (e.key);
+      // let a  = e.target['value'];
+      const regEx = new RegExp(this.regexStr);
+      if (regEx.test(ch)) {
+        return;
+      } else {
+        e.preventDefault();
+      }
+    }
+  }
+}
 
+@Directive({
+  selector: '[appNoSpace]'
+})
+export class NoSpaceDirective {
+
+  constructor(private el: ElementRef) {
+  }
+
+  @Input() appNoSpace: boolean;
+
+  @HostListener('keydown', ['$event']) onKeyDown(event) {
+    const e = event as KeyboardEvent;
+    if (this.appNoSpace) {
+      if (e.key === ' ') {
+        e.preventDefault();
+      }
+    }
+  }
+
+}

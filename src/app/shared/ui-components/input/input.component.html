@@ -1,0 +1,35 @@
+<ng-container *ngIf="formGroup && control">
+  <!-- <mat-form-field class="example-full-width">
+    
+    <input  placeholder="Ex. Pizza" value="Sushi">
+  </mat-form-field> -->
+    <div class="form-control" [formGroup]="formGroup"
+          [ngClass]="extraClass" [class.invalid]="control.touched && control.invalid">
+        <!-- <mat-form-field [formControl]="control"> -->
+          <input matInput
+            [type]="type"
+            [placeholder]="placeholder"
+            [attr.name]="name"
+            [attr.id]="id"
+            [formControl]="control"
+            [maxlength]="maxLength"
+            [minLength]="minLength"
+            [OnlyNumber]="onlyNumber"
+            [OnlyAlphaName]="onlyAlphabet"
+            [OnlyAlphaNumeric]="onlyAphaNumber"
+            [appNoSpace]="noSpace"
+            autocomplete="off"
+            (blur)="blur()" />
+          <p *ngIf="errorMessage" class="error-message">{{errorMessage}}</p>
+          <p *ngIf="control.touched && control.invalid" class="error-message">
+            {{
+              (control.errors.required) ? "Please enter "+name.toLowerCase() : 
+              (control.errors.minlength) ? name + " must be greater than " + (control.errors.minlength.requiredLength-1) : 
+              (control.errors.maxlength) ? name + " must be lesser than " + control.errors.maxlength.requiredLength :
+              'Please enter a valid '+name
+            }}
+          </p>
+        <!-- </mat-form-field> -->
+    </div>
+  </ng-container>
+  
