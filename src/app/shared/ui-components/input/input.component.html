@@ -21,16 +21,16 @@
             [appNoSpace]="noSpace"
             autocomplete="off"
             (blur)="blur()" />
-          <mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error>
           <mat-error *ngIf="control.touched && control.invalid">
             {{
               (control.errors.required) ? "Please enter "+name.toLowerCase() : 
               (control.errors.minlength) ? name + " must be greater than " + (control.errors.minlength.requiredLength-1) : 
               (control.errors.maxlength) ? name + " must be lesser than " + control.errors.maxlength.requiredLength :
-              'Please enter a valid '+name
+              (control.errors.incorrect) ? control.errors.incorrect : ''
             }}
           </mat-error>
         </mat-form-field>
+        errorMessage: {{control.errors | json}}
     </div>
   </ng-container>
   

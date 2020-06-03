@@ -25,7 +25,7 @@ export class InputComponent implements OnInit {
   @Input() label = '';
   @Input() hasHint = false;
   @Input() hintMessage = '';
-  @Input() errorMessage = '';
+  @Input() errorMessage: string | boolean = null;
   @Input() extraClass: string | string[] = '';
 
   // directives
@@ -42,12 +42,6 @@ export class InputComponent implements OnInit {
 
   // tslint:disable-next-line: no-output-on-prefix
   @Output() onBlur: EventEmitter<boolean>;
-
-  ngOnChanges(change) {
-    if (change.errorMessage) {
-      this.ref.detectChanges();
-    }
-  }
 
   ngOnInit() { }
 

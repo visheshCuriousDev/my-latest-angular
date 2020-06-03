@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UtilityFunctions } from 'src/app/utilities/app.utility';
 // Get an instance of `PhoneNumberUtil`.
@@ -17,11 +17,12 @@ export class MobileNumberComponent implements OnInit {
   countryCodeSearchVal: FormControl;
   countryCodes: Array<any> = [];
   filterCountryCode: Array<any>;
-  errorMessage: string;
+  errorMessage: string | boolean;
   selectedCodeName: any;
 
   constructor(
-    private util: UtilityFunctions
+    private util: UtilityFunctions,
+    private ref: ChangeDetectorRef
   ) {
     // Get the country code list
     const reg = phoneUtil.getSupportedRegions();
@@ -59,15 +60,17 @@ export class MobileNumberComponent implements OnInit {
     if (codeName) {
       this.selectedCodeName = codeName;
     }
-    if (this.mobileNumber.valid && this.mobileNumber.value && this.selectedCodeName) {
+    if ( (this.mobileNumber.valid || this.mobileNumber.errors.incorrect)
+        && this.mobileNumber.value && this.selectedCodeName) {
       const phoneCheck = phoneUtil.parseAndKeepRawInput(this.mobileNumber.value, this.selectedCodeName);
       if (!phoneUtil.isValidNumber(phoneCheck)) {
-        this.errorMessage = 'Please enter a valid phone number';
+        /* If phone invalid set error */
+        this.mobileNumber.setErrors({incorrect: 'Please enter a valid phone number'});
+        this.mobileNumber.markAsTouched();
       } else {
-        this.errorMessage = null;
+        /* If phone valid remove the error */
+        this.mobileNumber.setErrors(null);
       }
-    } else {
-      this.errorMessage = null;
     }
   }
 
