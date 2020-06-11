@@ -110,8 +110,8 @@ ol {
 .home {
     width: 100%;
     display: inline-flex;
-    max-height: calc(100vh - 60px);
-    min-height: calc(100vh - 60px);
+    max-height: $home-height;
+    min-height: $home-height;
     /* Side bar navigation element */
     .sidebar-nav{
         list-style: none;
@@ -176,7 +176,7 @@ ol {
     }
     .home-content {
         width: 100%;
-        height: calc(100vh - 60px);
+        height: $home-height;
     }
 }
 

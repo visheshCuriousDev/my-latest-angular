@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { UtilityFunctions } from 'src/app/utilities/app.utility';
 
 @Component({
   selector: 'app-contact-form',
@@ -10,7 +11,9 @@ export class ContactFormComponent implements OnInit {
 
   contactForm: FormGroup;
 
-  constructor() { }
+  constructor(
+    private util: UtilityFunctions
+  ) { }
 
   ngOnInit(): void {
     this.initialise();
@@ -18,8 +21,13 @@ export class ContactFormComponent implements OnInit {
 
   initialise() {
     this.contactForm = new FormGroup ({
-      mobileNumber: new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(6)]),
-      contryCode: new FormControl('', Validators.required),
+      mobileNumber: new FormControl('', [
+        this.util.requiredValidator('phone number'),
+        this.util.minlengthValidator('Phone number', 6),
+        this.util.maxlengthValidator('Phone number', 15),
+        this.util.onlyNumberValidator('phone number')
+      ]),
+      contryCode: new FormControl('', this.util.requiredValidator('phone code')),
     });
   }
 

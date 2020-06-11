@@ -1,3 +1,10 @@
+@import '../../../../../assets/scss/_variable';
+
 .contact-form {
     padding: 20px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    height: $content-height;
 }

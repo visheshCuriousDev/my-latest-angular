@@ -56,6 +56,7 @@ export class MobileNumberComponent implements OnInit {
     this.countryCodeSearchVal = new FormControl('');
   }
 
+  /* Function to check phone number validity */
   isPhoneValid(codeName = null) {
     if (codeName) {
       this.selectedCodeName = codeName;

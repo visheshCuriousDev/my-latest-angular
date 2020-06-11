@@ -43,6 +43,9 @@ export class InputComponent implements OnInit {
   // tslint:disable-next-line: no-output-on-prefix
   @Output() onBlur: EventEmitter<boolean>;
 
+  // HTML helpers
+  objectFn = Object;
+
   ngOnInit() { }
 
   blur() {

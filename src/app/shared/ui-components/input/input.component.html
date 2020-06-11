@@ -22,14 +22,11 @@
             autocomplete="off"
             (blur)="blur()" />
           <mat-error *ngIf="control.touched && control.invalid">
-            {{
-              (control.errors.required) ? "Please enter "+name.toLowerCase() : 
-              (control.errors.minlength) ? name + " must be greater than " + (control.errors.minlength.requiredLength-1) : 
-              (control.errors.maxlength) ? name + " must be lesser than " + control.errors.maxlength.requiredLength :
-              (control.errors.incorrect) ? control.errors.incorrect : ''
-            }}
+            <!-- Easy way to display any kind of error in HTML
+                  -> Get the first error key and display the error string in it-->
+            {{ control.errors[objectFn.keys(control.errors)[0]] }}
           </mat-error>
         </mat-form-field>
     </div>
-  </ng-container>
+</ng-container>
   
